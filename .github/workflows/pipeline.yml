@@ -1,0 +1,22 @@
+name: "CI/CD"
+
+#Triggers
+on:
+  push:
+    branches: [main]
+
+  workflow_dispatch:
+
+env:
+  NOME_IMAGEM: app
+
+steps:
+    - name: Checkout do codigo
+      uses: actions/checkout@v4
+
+    - name: instalar requirements
+      run: pip install -r requirements.txt
+
+entrega:
+  name: "Docker Hub"
+  runs-on: ubuntu-latest
